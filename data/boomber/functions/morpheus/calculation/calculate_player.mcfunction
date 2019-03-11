@@ -17,11 +17,11 @@ execute if score #bb.mp.mod_player bb.calculation matches 1.. run scoreboard pla
 
 scoreboard players operation #bb.mp.player_needed bb.variable = #bb.mp.player_needed bb.calculation
 
-scoreboard players operation #bb.mp.sleep_percent bb.variable = #bb.mp.sleep_player bb.calculation
+scoreboard players operation #bb.mp.sleep_percent bb.variable = #bb.mp.sleep_player bb.variable
 scoreboard players operation #bb.mp.sleep_percent bb.variable *= #100 bb.variable
 scoreboard players operation #bb.mp.sleep_percent bb.variable /= #bb.mp.total_player bb.variable
 
-scoreboard players operation #bb.mp.percent_needed bb.variable = #bb.mp.sleep_player bb.calculation
+scoreboard players operation #bb.mp.percent_needed bb.variable = #bb.mp.sleep_player bb.variable
 scoreboard players operation #bb.mp.percent_needed bb.variable *= #100 bb.variable
 scoreboard players operation #bb.mp.percent_needed bb.variable /= #bb.mp.player_needed bb.variable
 
