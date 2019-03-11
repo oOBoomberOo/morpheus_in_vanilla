@@ -1,0 +1,17 @@
+{
+   "display": {
+      "title": "Morpheus in Vanilla v1.14-1.0",
+      "description": "",
+      "icon": {
+         "item": "minecraft:red_bed"
+      },
+      "show_toast": false,
+      "announce_to_chat": false
+   },
+   "parent": "boomber:boomber",
+   "criteria": {
+      "trigger": {
+         "trigger": "minecraft:tick"
+      }
+   }
+}
