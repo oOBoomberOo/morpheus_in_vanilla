@@ -1,26 +1,29 @@
-execute store result score #real_player bb.players if entity @a
-execute store result score #fake_player bb.players if entity @e[tag=boomber.fake_player]
-execute store result score #player bb.players run scoreboard players operation #fake_player bb.players += #real_player bb.players
-execute store result score #sleep bb.players if entity @e[tag=boomber.morpheus.is_sleep]
-execute store result score #sleeping bb.players if entity @e[tag=boomber.morpheus.is_sleep]
+execute store result score #bb.mp.total_player bb.variable if entity @a
+execute store result score #bb.mp.fake_player bb.variable if entity @e[tag=boomber.morpheus.fake_player]
+execute store result score #bb.mp.sleep_player bb.variable if entity @e[tag=boomber.morpheus.is_sleep]
+scoreboard players operation #bb.mp.total_player bb.variable += #bb.mp.fake_player bb.variable
 
-execute store result score #player bb.players run scoreboard players operation #player bb.players *= #1 bb.global
-execute store result score #sleep bb.players run scoreboard players operation #sleep bb.players *= #100 bb.global
+scoreboard players operation #bb.mp.min_percentage bb.calculation = #minimum_percentage bb.gamerule
 
-execute store result score #sleep_in_percent bb.players run scoreboard players operation #sleep bb.players /= #player bb.players
+scoreboard players operation #bb.mp.player_needed bb.calculation = #bb.mp.total_player bb.variable
+scoreboard players operation #bb.mp.player_needed bb.calculation *= #bb.mp.min_percentage bb.calculation
+scoreboard players operation #bb.mp.player_needed bb.calculation /= #100 bb.variable
 
-execute store result score #sleep_in_percent bb.players run scoreboard players operation #sleep_in_percent bb.players *= #1 bb.global
+scoreboard players operation #bb.mp.mod_player bb.calculation = #bb.mp.total_player bb.variable
+scoreboard players operation #bb.mp.mod_player bb.calculation *= #bb.mp.min_percentage bb.calculation
+scoreboard players operation #bb.mp.mod_player bb.calculation %= #100 bb.variable
 
-execute store result score #cal_sleep_in_percent bb.players run scoreboard players get #sleep_in_percent bb.players
-execute store result score #cal_sleep_in_percent bb.players run scoreboard players operation #cal_sleep_in_percent bb.players *= #100 bb.global
-execute store result score #cal_sleep_percentage bb.players run scoreboard players get #minimum_percentage bb.players
-execute store result score #sleep_percentage bb.players run scoreboard players operation #cal_sleep_in_percent bb.players /= #cal_sleep_percentage bb.players
-execute store result score #sleep_percentage bb.players run scoreboard players operation #sleep_percentage bb.players *= #1 bb.global
+execute if score #bb.mp.mod_player bb.calculation matches 1.. run scoreboard players operation #bb.mp.player_needed bb.calculation += #1 bb.variable
 
+scoreboard players operation #bb.mp.player_needed bb.variable = #bb.mp.player_needed bb.calculation
 
-execute store result score #cal_minimum_percent bb.players run scoreboard players get #minimum_percentage bb.players
-execute store result score #cal_player bb.players run scoreboard players get #player bb.players
-execute store result score #player_needed bb.players run scoreboard players operation #cal_player bb.players *= #cal_minimum_percent bb.players
-execute store result score #cal_value bb.players run scoreboard players get #player_needed bb.players
-function boomber:morpheus/calculation/rounding
-execute store result score #player_needed bb.players run scoreboard players operation #player_needed bb.players /= #100 bb.global
+scoreboard players operation #bb.mp.sleep_percent bb.variable = #bb.mp.sleep_player bb.calculation
+scoreboard players operation #bb.mp.sleep_percent bb.variable *= #100 bb.variable
+scoreboard players operation #bb.mp.sleep_percent bb.variable /= #bb.mp.total_player bb.variable
+
+scoreboard players operation #bb.mp.percent_needed bb.variable = #bb.mp.sleep_player bb.calculation
+scoreboard players operation #bb.mp.percent_needed bb.variable *= #100 bb.variable
+scoreboard players operation #bb.mp.percent_needed bb.variable /= #bb.mp.player_needed bb.variable
+
+scoreboard players operation #bb.mp.sleeep_player-1 bb.variable = #bb.mp.sleeep_player bb.variable
+scoreboard players operation #bb.mp.sleeep_player-1 bb.variable -= #1 bb.variable
