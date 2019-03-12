@@ -1,9 +1,9 @@
 {
    "display": {
-      "title": "Morpheus in Vanilla v1.0",
-      "description": "",
+      "title": "Morpheus: Reloaded v1.0",
+      "description": "Sleep vote system in vanilla",
       "icon": {
-         "item": "minecraft:red_bed"
+         "item": "minecraft:blue_bed"
       },
       "show_toast": false,
       "announce_to_chat": false
