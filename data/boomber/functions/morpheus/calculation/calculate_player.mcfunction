@@ -1,7 +1,5 @@
-execute store result score #bb.mp.total_player bb.variable if entity @a
-execute store result score #bb.mp.fake_player bb.variable if entity @e[tag=boomber.morpheus.fake_player]
+execute store result score #bb.mp.total_player bb.variable if entity @a[nbt={Dimension:0}]
 execute store result score #bb.mp.sleep_player bb.variable if entity @e[tag=boomber.morpheus.is_sleep]
-scoreboard players operation #bb.mp.total_player bb.variable += #bb.mp.fake_player bb.variable
 
 scoreboard players operation #bb.mp.min_percentage bb.calculation = #minimum_percentage bb.gamerule
 
