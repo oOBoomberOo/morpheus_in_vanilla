@@ -1,2 +1,6 @@
-execute if score #bb.mp.cooldown bb.variable matches 1.. run scoreboard players remove #bb.mp.cooldown bb.variable 1
-execute if score #bb.mp.cooldown bb.variable matches 0 run function boomber:morpheus/update
+function boomber:morpheus/time
+
+execute as @a[tag=!global.ignore] at @s run function boomber:morpheus/player/main
+function boomber:morpheus/morpheus/main
+
+schedule function boomber:morpheus/main 1s

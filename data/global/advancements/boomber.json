@@ -3,7 +3,8 @@
 		"title": "Boomber",
 		"description": "",
 		"icon": {
-			"item": "minecraft:command_block"
+			"item": "minecraft:player_head",
+			"nbt": "{SkullOwner: 'Boomber'}"
 		},
 		"show_toast": false,
 		"announce_to_chat": false

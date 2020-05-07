@@ -1,3 +1,0 @@
-execute if score #bb.mp.sleep_time.sec bb.variable matches 0 run tellraw @a [{"text":"Fast forwarding time...","color":"yellow"}]
-execute if score #bb.mp.sleep_time.sec bb.variable matches 1 run tellraw @a [{"text":"Fast forwarding time in ","color":"yellow"}, {"score":{"name": "#bb.mp.sleep_time.sec", "objective": "bb.variable"}}, {"text": " second...", "color": "yellow"}]
-execute if score #bb.mp.sleep_time.sec bb.variable matches 2.. run tellraw @a [{"text":"Fast forwarding time in ","color":"yellow"}, {"score":{"name": "#bb.mp.sleep_time.sec", "objective": "bb.variable"}}, {"text": " seconds...", "color": "yellow"}]

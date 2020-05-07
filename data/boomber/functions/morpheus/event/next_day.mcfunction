@@ -1,5 +1,5 @@
-scoreboard players set #bb.mp.time bb.variable -1
-scoreboard players operation #bb.mp.cooldown bb.variable = #morpheus_cooldown bb.gamerule 
+function boomber:morpheus/time
+function boomber:morpheus/morpheus/log_time
 
 weather clear 1200
-tellraw @a [{"text":"The sun is rising...","color":"yellow"}]
+tellraw @a [{"text": "The sun is rising...", "color": "yellow"}]

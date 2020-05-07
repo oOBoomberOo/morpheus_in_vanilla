@@ -1,6 +1,6 @@
 {
    "display": {
-      "title": "Morpheus: Reloaded v1.1",
+      "title": "Morpheus: Reloaded",
       "description": "Sleep vote system in vanilla",
       "icon": {
          "item": "minecraft:blue_bed"
@@ -8,7 +8,7 @@
       "show_toast": false,
       "announce_to_chat": false
    },
-   "parent": "boomber:boomber",
+   "parent": "global:boomber",
    "criteria": {
       "trigger": {
          "trigger": "minecraft:tick"

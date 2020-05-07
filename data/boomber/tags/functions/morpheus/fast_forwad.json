@@ -1,5 +1,6 @@
 {
 	"values": [
+		"boomber:morpheus/morpheus/fast_forward",
 		"boomber:morpheus/event/next_day"
 	]
 }

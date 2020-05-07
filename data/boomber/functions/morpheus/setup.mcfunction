@@ -1,19 +1,14 @@
-scoreboard objectives add bb.variable dummy
-scoreboard objectives add bb.calculation dummy
-scoreboard objectives add bb.gamerule dummy
+scoreboard objectives add bb.mp.var dummy
+scoreboard objectives add bb.mp.const dummy
+scoreboard objectives add bb.mp.gamerule dummy
 
-scoreboard players set #1 bb.variable 1
-scoreboard players set #100 bb.variable 100
-scoreboard players set #20 bb.variable 20
-scoreboard players set #1 bb.variable 1
-
-scoreboard players set #bb.mp.time bb.variable 0
-scoreboard players set #bb.mp.cooldown bb.variable 0
-scoreboard players set #bb.mp.sleep_timer bb.variable 0
-scoreboard players set #bb.mp.wakeup_time bb.variable 23999
+scoreboard players set #20 bb.mp.const 20
+scoreboard players set #100 bb.mp.const 100
 
 function boomber:morpheus/config
 
-scoreboard players operation #bb.mp.sleep_time.sec bb.variable = #sleep_time bb.gamerule
-scoreboard players operation #sleep_time bb.gamerule *= #20 bb.variable
-scoreboard players operation #morpheus_cooldown bb.gamerule *= #20 bb.variable
+#define score_holder #sleep_time.tick
+scoreboard players operation #sleep_time.tick bb.mp.const = #sleep_time bb.mp.gamerule
+scoreboard players operation #sleep_time.tick bb.mp.const *= #20 bb.mp.const
+
+function boomber:morpheus/main
